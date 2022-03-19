@@ -1,0 +1,58 @@
+:root {
+  --thick-border: 2px solid #999;
+}
+
+body{
+  font-size: 3vw;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.App {
+  text-align: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(1fr, 9);
+  grid-template-rows: repeat(1fr, 9);
+  max-width: 100vh;
+  max-height: 100vw;
+  margin: 0 auto;
+}
+
+.cell {
+  border: 1px solid #eee;
+  padding: 1.2rem 1rem;
+
+  &:nth-child(3n){
+    border-right: var(--thick-border);
+  } 
+}
+
+.r-1{
+  border-top: var(--thick-border);
+}
+
+.v-8{
+  color: #080;
+  font-weight: bold;
+  font-size: 1.2rem;
+  background: #efe;
+}
+
+.c-1{
+  border-left: var(--thick-border);
+}
+
+.r-3, .r-6, .r-9 {
+  border-bottom: var(--thick-border);
+}
+
+@for $i from 1 through 9 {
+  .r-#{$i} {
+   grid-row: #{$i};
+  }
+  .c-#{$i} {
+    grid-column: #{$i};
+   }
+}
