@@ -10,6 +10,20 @@ body {
 .App {
   text-align: center;
 }
+.header {
+  display: flex;
+}
+
+.mode {
+  button {
+    border: 1px solid #ccc;
+    margin: 2px;
+  }
+  .active {
+    background: #0a0;
+    color: white;
+  }
+}
 
 .board {
   display: grid;
