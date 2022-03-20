@@ -1,8 +1,9 @@
 {
-  "name": "sudoku",
+  "name": "react-sudoku",
   "version": "1.0.0",
-  "description": "",
+  "description": "react sudoku",
   "keywords": [],
+  "license": "MIT",
   "main": "src/index.js",
   "dependencies": {
     "react": "17.0.2",
