@@ -1,5 +1,5 @@
-import { FunctionComponent, useState } from 'react';
-import './styles.scss';
+import { FunctionComponent, useState } from "react";
+import "./styles.scss";
 
 type Seed = number[];
 
@@ -19,11 +19,11 @@ const Cell: FunctionComponent<CellProps> = ({
   c,
   value,
   active,
-  onClick,
+  onClick
 }) => {
   return (
     <div
-      className={`cell r-${r} c-${c} v-${value}${active ? ' active' : ''}`}
+      className={`cell r-${r} c-${c} v-${value}${active ? " active" : ""}`}
       onClick={onClick}
     >
       {value}
@@ -80,6 +80,7 @@ const App: FunctionComponent = () => {
         {one29.map((r) => {
           return getRow(seed, r).map((n, i) => (
             <Cell
+              key={`${r}-${i + 1}`}
               r={r}
               c={i + 1}
               value={n}
