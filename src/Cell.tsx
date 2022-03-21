@@ -20,7 +20,7 @@ export const Cell: FunctionComponent<CellProps> = ({
       className={`cell r-${r} c-${c} v-${value}${active ? ' active' : ''}`}
       onClick={onClick}
     >
-      {value}
+      {value ? value : ''}
     </div>
   );
 };

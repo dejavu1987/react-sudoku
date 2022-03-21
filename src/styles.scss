@@ -7,18 +7,27 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+button {
+  font-size: max(2vw, 2vh, 16px);
+  padding: 0.5rem 1rem;
+}
+
 .App {
   text-align: center;
 }
 .header {
   display: flex;
+  align-items: center;
+  gap: 3rem;
 }
 
-.mode {
+header {
   button {
     border: 1px solid #ccc;
     margin: 2px;
+    border-radius: 1.4rem;
   }
+  button:hover,
   .active {
     background: #0a0;
     color: white;
@@ -35,8 +44,9 @@ body {
 }
 
 .cell {
-  border: 1px solid #fee;
+  border: 1px solid #eee;
   padding: 1.2rem 1rem;
+  cursor: pointer;
 
   &:nth-child(3n) {
     border-right: var(--thick-border);
