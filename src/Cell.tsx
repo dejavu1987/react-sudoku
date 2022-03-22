@@ -6,6 +6,7 @@ export type CellProps = {
   value: number;
   active?: boolean;
   onClick: () => void;
+  possibilities?: number[];
 };
 
 export const Cell: FunctionComponent<CellProps> = ({
@@ -14,13 +15,21 @@ export const Cell: FunctionComponent<CellProps> = ({
   value,
   active,
   onClick,
+  possibilities,
 }) => {
   return (
     <div
       className={`cell r-${r} c-${c} v-${value}${active ? ' active' : ''}`}
       onClick={onClick}
     >
-      {value ? value : ''}
+      {value ? <span className="value">{value}</span> : ''}
+      <div className="candidates">
+        {!value && possibilities
+          ? possibilities.map((p) => {
+              return <span>{p}</span>;
+            })
+          : ''}
+      </div>
     </div>
   );
 };

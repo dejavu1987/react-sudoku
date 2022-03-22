@@ -47,7 +47,9 @@ header {
   border: 1px solid #eee;
   padding: 1.2rem 1rem;
   cursor: pointer;
-
+  .value {
+    padding: 1rem;
+  }
   &:nth-child(3n) {
     border-right: var(--thick-border);
   }
@@ -57,6 +59,21 @@ header {
     font-weight: bold;
     font-size: 1.2em;
     background: #efe;
+  }
+
+  .candidates {
+    color: rgb(5, 80, 192);
+    font-size: 1rem;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Patrick Hand SC', cursive;
+
+    span {
+      flex-basis: 33%;
+    }
   }
 }
 
