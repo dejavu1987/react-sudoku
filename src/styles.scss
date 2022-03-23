@@ -2,14 +2,17 @@
   --thick-border: 2px solid #999;
 }
 
+html,
 body {
-  font-size: max(2vw, 2vh, 16px);
+  margin: 0;
+  font-size: min(2vw, 1.7vh);
   font-family: 'Montserrat', sans-serif;
 }
 
 button {
-  font-size: max(2vw, 2vh, 16px);
+  font-size: 1rem;
   padding: 0.5rem 1rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .App {
@@ -19,6 +22,8 @@ button {
   display: flex;
   align-items: center;
   gap: 3rem;
+  width: 45rem;
+  margin: 0 auto;
 }
 
 header {
@@ -36,26 +41,50 @@ header {
 
 .board {
   display: grid;
-  grid-template-columns: repeat(1fr, 9);
-  grid-template-rows: repeat(1fr, 9);
-  max-width: 100vh;
-  max-height: 100vw;
+  grid-template-columns: repeat(9, 5rem);
+  grid-template-rows: repeat(9, 5rem);
+  max-width: 100%;
   margin: 0 auto;
+  width: 45rem;
+}
+
+.number-select {
+  width: 45rem;
+  margin: 0 auto;
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.32rem;
+
+  &__btn {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 1rem 1.7rem;
+    font-size: 2rem;
+
+    &.active {
+      background: #0a0;
+      color: #fff;
+    }
+  }
 }
 
 .cell {
   border: 1px solid #eee;
   padding: 1.2rem 1rem;
   cursor: pointer;
+
   .value {
+    font-size: 1.6rem;
     padding: 1rem;
   }
+
   &:nth-child(3n) {
     border-right: var(--thick-border);
   }
 
   &.active {
     color: #080;
+    border: 2px solid #080;
     font-weight: bold;
     font-size: 1.2em;
     background: #efe;

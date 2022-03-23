@@ -16,7 +16,12 @@ const App: FunctionComponent = () => {
   }, []);
   const onCellClick = (n: number, r: number, c: number) => {
     if (mode === 'SELECT') {
-      setActive(n);
+      if (n) setActive(n);
+      else {
+        const b = JSON.parse(JSON.stringify(board));
+        b[r][c] = active;
+        setBoard(b);
+      }
     }
     if (mode === 'REMOVE') {
       const b = JSON.parse(JSON.stringify(board));
@@ -96,6 +101,16 @@ const App: FunctionComponent = () => {
               />
             ));
           })}
+      </div>
+      <div className="number-select">
+        {oneto9.map((n) => (
+          <button
+            className={`number-select__btn${active === n ? ' active' : ''}`}
+            onClick={() => setActive(n)}
+          >
+            {n}
+          </button>
+        ))}
       </div>
     </div>
   );
