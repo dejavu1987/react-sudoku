@@ -63,28 +63,34 @@ const App: FunctionComponent = () => {
   return (
     <div className="App">
       <header className="header">
-        <h1>DuSoKu</h1>
+        <h1 className="logo">
+          <span>Du</span>
+          <span>So</span>
+          <span>Ku</span>
+        </h1>
         <div className="mode">
           <button
             className={mode === 'SELECT' ? 'active' : ''}
             onClick={() => setMode('SELECT')}
           >
-            Sel
+            <i className="fa-regular fa-circle-check"></i> Sel
           </button>
           <button
-            className={mode === 'REMOVE' ? 'active' : ''}
+            className={mode === 'REMOVE' ? 'active remove' : ''}
             onClick={() => setMode('REMOVE')}
           >
-            Rem
+            <i className="fa fa-trash-can"></i> Rem
           </button>
           <button
-            className={mode === 'CALCULATE' ? 'active' : ''}
+            className={mode === 'CALCULATE' ? 'active calculate' : ''}
             onClick={() => setMode('CALCULATE')}
           >
-            Q
+            <i className="fa-regular fa-lightbulb"></i> Calc
           </button>
         </div>
-        <button onClick={() => setBoard(getRandomBoard())}>Reload</button>
+        <button onClick={() => setBoard(getRandomBoard())}>
+          <i className="fa-regular fa-share-from-square"></i> Reload
+        </button>
       </header>
       <div className="board">
         {board &&

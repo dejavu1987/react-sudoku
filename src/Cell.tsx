@@ -23,13 +23,15 @@ export const Cell: FunctionComponent<CellProps> = ({
       onClick={onClick}
     >
       {value ? <span className="value">{value}</span> : ''}
-      <div className="candidates">
-        {!value && possibilities
-          ? possibilities.map((p) => {
-              return <span>{p}</span>;
-            })
-          : ''}
-      </div>
+      {!value && possibilities ? (
+        <div className="candidates">
+          {possibilities.map((p) => {
+            return <span>{p}</span>;
+          })}
+        </div>
+      ) : (
+        ''
+      )}
     </div>
   );
 };

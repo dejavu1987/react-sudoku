@@ -1,5 +1,10 @@
 :root {
   --thick-border: 2px solid #999;
+  --c-primary: #0a0;
+  --c-primary-dark: #008800;
+  --c-primary-light: rgb(195, 250, 195);
+  --c-secondary: rgb(0, 49, 139);
+  --c-danger: #aa2600;
 }
 
 html,
@@ -7,19 +12,47 @@ body {
   margin: 0;
   font-size: min(2vw, 1.7vh);
   font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(rgb(227, 250, 237), transparent),
+    linear-gradient(to top left, rgb(248, 248, 218), transparent),
+    linear-gradient(to top right, rgb(240, 222, 250), transparent);
+  background-blend-mode: screen;
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+}
+
+#root {
+  margin: auto;
 }
 
 button {
   font-size: 1rem;
   padding: 0.5rem 1rem;
   font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  background: rgba(233, 233, 233, 0.1);
 }
 
 .App {
   text-align: center;
 }
+
+.logo span {
+  color: var(--c-primary);
+
+  &:first-child {
+    color: var(--c-primary-dark);
+  }
+
+  &:last-child {
+    color: var(--c-secondary);
+  }
+}
 .header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 3rem;
   width: 45rem;
@@ -31,11 +64,22 @@ header {
     border: 1px solid #ccc;
     margin: 2px;
     border-radius: 1.4rem;
+    font-size: 1.2rem;
+    padding: 0.8rem 1.2rem;
   }
+
   button:hover,
   .active {
-    background: #0a0;
+    background: var(--c-primary);
     color: white;
+
+    &.remove {
+      background: var(--c-danger);
+    }
+
+    &.calculate {
+      background: var(--c-secondary);
+    }
   }
 }
 
@@ -53,7 +97,7 @@ header {
   margin: 0 auto;
   margin-top: 1rem;
   display: flex;
-  gap: 0.32rem;
+  justify-content: space-between;
 
   &__btn {
     background: #fff;
@@ -62,7 +106,7 @@ header {
     font-size: 2rem;
 
     &.active {
-      background: #0a0;
+      background: var(--c-primary);
       color: #fff;
     }
   }
@@ -70,12 +114,12 @@ header {
 
 .cell {
   border: 1px solid #eee;
-  padding: 1.2rem 1rem;
   cursor: pointer;
+  display: flex;
 
   .value {
     font-size: 1.6rem;
-    padding: 1rem;
+    margin: auto;
   }
 
   &:nth-child(3n) {
@@ -83,16 +127,18 @@ header {
   }
 
   &.active {
-    color: #080;
-    border: 2px solid #080;
+    color: var(--c-primary-dark);
     font-weight: bold;
     font-size: 1.2em;
-    background: #efe;
+    background: var(--c-primary-light);
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 8px rgb(0 0 0 / 10%);
   }
 
   .candidates {
-    color: rgb(5, 80, 192);
-    font-size: 1rem;
+    color: var(--c-secondary);
+    font-size: 1.2rem;
+    width: 100%;
     margin: 0;
     display: flex;
     flex-wrap: wrap;
